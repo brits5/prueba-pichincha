@@ -1,0 +1,6 @@
+@IntencionPagoApi_HostAddress = http://localhost:5008
+
+GET {{IntencionPagoApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

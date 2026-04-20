@@ -1,0 +1,29 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Angular
+dist/
+tmp/
+out-tsc/
+bazel-out/
+.angular/
+
+# .NET
+bin/
+obj/
+
+# IDEs
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+.history/
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.user

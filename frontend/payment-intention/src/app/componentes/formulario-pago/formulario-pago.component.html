@@ -1,0 +1,74 @@
+<div class="card shadow-sm p-4">
+  <h4 class="mb-3">Registro de Intención de Pago</h4>
+
+  <div *ngIf="mensajeExito" class="alert alert-success">{{ mensajeExito }}</div>
+  <div *ngIf="mensajeError" class="alert alert-danger">{{ mensajeError }}</div>
+
+  <form [formGroup]="formulario" (ngSubmit)="enviar()">
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <label class="form-label">Código Cliente *</label>
+        <input formControlName="codigoCliente" class="form-control"
+               [class.is-invalid]="esInvalido('codigoCliente')" placeholder="Ej: 1">
+        <div class="invalid-feedback">Campo requerido.</div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Nombre Completo *</label>
+        <input formControlName="nombreCompleto" class="form-control"
+               [class.is-invalid]="esInvalido('nombreCompleto')" placeholder="Ej: Juan Pérez">
+        <div class="invalid-feedback">Mínimo 3 caracteres.</div>
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Tipo de Identificación *</label>
+        <select formControlName="tipoIdentificacion" class="form-select"
+                [class.is-invalid]="esInvalido('tipoIdentificacion')">
+          <option value="">-- Seleccione --</option>
+          <option value="CI">Cédula (CI)</option>
+          <option value="PA">Pasaporte (PA)</option>
+        </select>
+        <div class="invalid-feedback">Seleccione un tipo.</div>
+      </div>
+
+      <div class="col-md-8">
+        <label class="form-label">Número de Identificación *</label>
+        <input formControlName="identificacion" class="form-control"
+               [class.is-invalid]="esInvalido('identificacion')" placeholder="Ej: 00001900868728">
+        <div class="invalid-feedback">Mínimo 5 caracteres.</div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Teléfono *</label>
+        <input formControlName="telefono" class="form-control"
+               [class.is-invalid]="esInvalido('telefono')" placeholder="Ej: 0991234567">
+        <div class="invalid-feedback">Debe tener exactamente 10 dígitos.</div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Correo Electrónico *</label>
+        <input formControlName="correo" type="email" class="form-control"
+               [class.is-invalid]="esInvalido('correo')" placeholder="correo@ejemplo.com">
+        <div class="invalid-feedback">Ingrese un correo válido.</div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Monto Disponible para Pago ($) *</label>
+        <input formControlName="montoDisponible" type="number" class="form-control"
+               [class.is-invalid]="esInvalido('montoDisponible')" placeholder="Ej: 150">
+        <div class="invalid-feedback">Debe ser mayor a $0.</div>
+      </div>
+
+    </div>
+
+    <div class="mt-4 d-flex gap-2">
+      <button type="submit" class="btn btn-primary" [disabled]="cargando">
+        {{ cargando ? 'Guardando...' : 'Registrar Intención de Pago' }}
+      </button>
+      <button type="button" class="btn btn-outline-secondary" (click)="formulario.reset()">
+        Limpiar
+      </button>
+    </div>
+  </form>
+</div>
