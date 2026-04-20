@@ -8,7 +8,7 @@ Sistema de registro de intenciones de pago para campaña de convenios de cobranz
 - **Backend:** .NET 8 Web API
 - **Estilos:** Bootstrap 5
 
-## 🚀 Cómo ejecutar
+## Cómo ejecutar
 
 ### Backend
 ```bash
